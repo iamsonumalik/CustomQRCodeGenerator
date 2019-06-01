@@ -16,7 +16,8 @@ To generate QR Code in swift, we use Core Image Filter and CIQRCodeGenerator. It
 
 ```
 guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-let qrData = absoluteString.data(using: String.Encoding.ascii)        qrFilter.setValue(qrData, forKey: "inputMessage")
+let qrData = absoluteString.data(using: String.Encoding.ascii)        
+qrFilter.setValue(qrData, forKey: "inputMessage")
 let qrTransform = CGAffineTransform(scaleX: 12, y: 12)
 let qrCode = qrFilter.outputImage?.transformed(by: qrTransform)
 ```
