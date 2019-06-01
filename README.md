@@ -24,13 +24,13 @@ A QR code is often linking to a URL. Therefore, it’s nice to create an extensi
 
 ```
 extension URL {
-var qrCode: CIImage? {
-guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-let qrData = absoluteString.data(using: String.Encoding.ascii)
-qrFilter.setValue(qrData, forKey: "inputMessage")
-let qrTransform = CGAffineTransform(scaleX: 12, y: 12)
-return qrFilter.outputImage?.transformed(by: qrTransform)
-}
+  var qrCode: CIImage? {
+    guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+    let qrData = absoluteString.data(using: String.Encoding.ascii)
+    qrFilter.setValue(qrData, forKey: "inputMessage")
+    let qrTransform = CGAffineTransform(scaleX: 12, y: 12)
+    return qrFilter.outputImage?.transformed(by: qrTransform)
+  }
 }
 ```
 
@@ -52,36 +52,36 @@ As you see in above code, we are using CIImage and returning qrCode in CIImage f
 
 ```
 extension CIImage {
-var transparent: CIImage? {
-return inverted?.blackTransparent
-}
+  var transparent: CIImage? {
+    return inverted?.blackTransparent
+  }
 
-var inverted: CIImage? {
-guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else { return nil }
-invertedColorFilter.setValue(self, forKey: "inputImage")
-return invertedColorFilter.outputImage
-}
+  var inverted: CIImage? {
+    guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else { return nil }
+    invertedColorFilter.setValue(self, forKey: "inputImage")
+    return invertedColorFilter.outputImage
+  }
 
-var blackTransparent: CIImage? {
-guard let blackTransparentCIFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
-blackTransparentCIFilter.setValue(self, forKey: "inputImage")
-return blackTransparentCIFilter.outputImage
-}
+  var blackTransparent: CIImage? {
+    guard let blackTransparentCIFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
+    blackTransparentCIFilter.setValue(self, forKey: "inputImage")
+    return blackTransparentCIFilter.outputImage
+  }
 
-func tinted(using color: UIColor) -> CIImage?
-{
-guard
-let transparentQRImage = transparent,
-let filter = CIFilter(name: "CIMultiplyCompositing"),
-let colorFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
+  func tinted(using color: UIColor) -> CIImage?
+  {
+    guard
+    let transparentQRImage = transparent,
+    let filter = CIFilter(name: "CIMultiplyCompositing"),
+    let colorFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
 
-let ciColor = CIColor(color: color)
-colorFilter.setValue(ciColor, forKey: kCIInputColorKey)
-let colorImage = colorFilter.outputImage
-filter.setValue(colorImage, forKey: kCIInputImageKey)
-filter.setValue(transparentQRImage, forKey: kCIInputBackgroundImageKey)
-return filter.outputImage!
-}
+    let ciColor = CIColor(color: color)
+    colorFilter.setValue(ciColor, forKey: kCIInputColorKey)
+    let colorImage = colorFilter.outputImage
+    filter.setValue(colorImage, forKey: kCIInputImageKey)
+    filter.setValue(transparentQRImage, forKey: kCIInputBackgroundImageKey)
+    return filter.outputImage!
+  }
 }
 ```
 
@@ -98,11 +98,11 @@ We will create a new function inside CIImage extention. This function will takes
 
 ```
 func addLogo(with image: CIImage) -> CIImage? {
-guard let combinedFilter = CIFilter(name: "CISourceOverCompositing") else { return nil }
-let centerTransform = CGAffineTransform(translationX: extent.midX - (image.extent.size.width / 2), y: extent.midY - (image.extent.size.height / 2))
-combinedFilter.setValue(image.transformed(by: centerTransform), forKey: "inputImage")
-combinedFilter.setValue(self, forKey: "inputBackgroundImage")
-return combinedFilter.outputImage!
+    guard let combinedFilter = CIFilter(name: "CISourceOverCompositing") else { return nil }
+    let centerTransform = CGAffineTransform(translationX: extent.midX - (image.extent.size.width / 2), y: extent.midY - (image.extent.size.height / 2))
+    combinedFilter.setValue(image.transformed(by: centerTransform), forKey: "inputImage")
+    combinedFilter.setValue(self, forKey: "inputBackgroundImage")
+    return combinedFilter.outputImage!
 }
 ```
 
