@@ -95,7 +95,7 @@ let qrCode = URL(string: "https://codalien.com")?.qrCode?.tinted(using: codalien
 #### Adding Logo in QR Code.
 QR code has a feature called [error correction](https://www.qrcode.com/en/about/error_correction.html). Error correction allows us to change or replace a part of QR Code. With the help of this feature we will replace a certain part with our logo. 
 
-We will create a new function inside CIImage extention. This function will takes our logo and return CIImage. This would be the final image of QR Code. Basically it is the combination of our logo and QR Code. 
+We will create a new function inside CIImage extension. This function will takes our logo and return CIImage. This would be the final image of QR Code. Basically it is the combination of our logo and QR Code. 
 
 ```
 func addLogo(with image: CIImage) -> CIImage? {
