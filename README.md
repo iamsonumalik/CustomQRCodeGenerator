@@ -5,9 +5,9 @@
 "QR" stands for "Quick Response", which refers to the instant access to the information hidden in the Code. The QR Code is a two-dimensional version of the barcode, known from product packaging in the supermarket. Originally developed for process optimization in the logistics of the automotive industry, the QR Code has found its way into mobile marketing with the widespread adoption of smartphones
 
 ### Let’s start…
-As we all know, QR Code is used to share information or content. There are many apps that uses QR Code to share information like Twitter and Snapchat uses it to add User. And the other app like Paytm , PhonePe uses QR Code to or make easy to transfer money. 
+As we all know, QR Code is used to share information or content. There are many apps that uses QR Code to share information. For eg: Twitter and Snapchat uses QR code to add User. And the other apps like Paytm , PhonePe uses it to or make easy to transfer money. 
 
-We can use them as we want and QR Code is the fastest way to share information. 
+We can use them when required.Also, QR Code is the fastest way to share information. 
 
 Today we will learn ‘How to create QR Code in Swift’. Initially we will start with basic QR Code which provide you a blank and white QR Code and later we will add Custom Logo and Color. 
 
