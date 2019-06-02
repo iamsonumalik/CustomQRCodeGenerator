@@ -5,7 +5,7 @@
 "QR" stands for "Quick Response", which refers to the instant access to the information hidden in the Code. The QR Code is a two-dimensional version of the barcode, known from product packaging in the supermarket. Originally developed for process optimization in the logistics of the automotive industry, the QR Code has found its way into mobile marketing with the widespread adoption of smartphones
 
 ### Let’s start…
-As we all know, QR Code is used to share information or content. There are many apps that uses QR Code to share information. For eg: Twitter and Snapchat uses QR code to add User. And the other apps like Paytm , PhonePe uses it to or make easy to transfer money. 
+As we all know, QR Code is used to share information or content. There are many apps that uses QR Code to share information. For eg: Twitter and Snapchat uses QR code to add User. And the other apps like Paytm , PhonePe uses it to, or make easy to, transfer money. 
 
 We can use them when required.Also, QR Code is the fastest way to share information. 
 
